@@ -23,6 +23,7 @@ public class ApiController {
         this.registration = registration;
         this.requestTimer = Timer.builder("api.request.duration")
                 .tag("instance_id", String.valueOf(registration.getInstanceId()))
+                .publishPercentileHistogram(true)
                 .register(meterRegistry);
     }
 
