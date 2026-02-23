@@ -1,3 +1,0 @@
-rootProject.name = "consistent-hashing"
-
-include("common", "api-service", "load-balancer", "test-client")
