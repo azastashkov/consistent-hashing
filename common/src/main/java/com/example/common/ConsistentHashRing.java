@@ -37,7 +37,7 @@ public class ConsistentHashRing<T> {
             if (ring.isEmpty()) {
                 return null;
             }
-            int hash = id % ring.size();
+            int hash = hash(id);
             Map.Entry<Integer, T> entry = ring.ceilingEntry(hash);
             if (entry == null) {
                 entry = ring.firstEntry();
@@ -46,6 +46,10 @@ public class ConsistentHashRing<T> {
         } finally {
             lock.readLock().unlock();
         }
+    }
+
+    private int hash(int id) {
+        return id % ring.size();
     }
 
     public int size() {
