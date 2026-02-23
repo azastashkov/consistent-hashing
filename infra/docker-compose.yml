@@ -87,8 +87,8 @@ services:
       - test
     environment:
       LOAD_BALANCER_URL: http://load-balancer:8080
-      NUM_USERS: 20
-      INTERVAL_MS: 500
+      NUM_USERS: 16
+      INTERVAL_MS: 100
       DURATION_SECONDS: 300
     depends_on:
       - load-balancer
