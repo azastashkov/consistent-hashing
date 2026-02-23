@@ -83,9 +83,9 @@ public class ServiceRegistry {
         String host = json.get("host").asText();
         int port = json.get("port").asInt();
         String nodeKey = extractNodeKey(path);
-        int id = Integer.parseInt(nodeKey);
+        int nodeKeyId = Integer.parseInt(nodeKey);
 
-        ServiceInstance instance = new ServiceInstance(id, host, port);
+        ServiceInstance instance = new ServiceInstance(nodeKeyId, host, port);
         ring.addNode(nodeKey, instance);
         log.info("Added instance to ring: nodeKey={}, address={}:{}", nodeKey, host, port);
     }

@@ -19,10 +19,10 @@ public class LoadGenerator implements CommandLineRunner {
     @Value("${load-balancer.url}")
     private String loadBalancerUrl;
 
-    @Value("${load.num-users:20}")
+    @Value("${load.num-users:16}")
     private int numUsers;
 
-    @Value("${load.interval-ms:500}")
+    @Value("${load.interval-ms:1000}")
     private long intervalMs;
 
     @Value("${load.duration-seconds:300}")
@@ -37,7 +37,7 @@ public class LoadGenerator implements CommandLineRunner {
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(numUsers);
 
         for (int i = 0; i < numUsers; i++) {
-            String userId = "user" + i;
+            String userId = String.valueOf(i);
             executor.scheduleAtFixedRate(() -> sendRequest(restClient, userId),
                     i * 50L, // stagger start times
                     intervalMs,
