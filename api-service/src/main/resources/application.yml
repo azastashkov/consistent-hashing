@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+service:
+  host: ${HOSTNAME:localhost}
+
+zookeeper:
+  connect-string: ${ZOOKEEPER_CONNECT_STRING:localhost:2181}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    tags:
+      application: api-service

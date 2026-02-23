@@ -1,0 +1,11 @@
+spring:
+  main:
+    web-application-type: none
+
+load-balancer:
+  url: ${LOAD_BALANCER_URL:http://localhost:8080}
+
+load:
+  num-users: ${NUM_USERS:20}
+  interval-ms: ${INTERVAL_MS:500}
+  duration-seconds: ${DURATION_SECONDS:300}

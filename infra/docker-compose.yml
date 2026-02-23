@@ -1,0 +1,115 @@
+services:
+  zookeeper:
+    image: zookeeper:3.9
+    ports:
+      - "2181:2181"
+    environment:
+      ZOO_MY_ID: 1
+    healthcheck:
+      test: ["CMD-SHELL", "echo ruok | nc localhost 2181 | grep imok"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  zoonavigator:
+    image: elkozmon/zoonavigator:latest
+    ports:
+      - "9000:9000"
+    environment:
+      HTTP_PORT: 9000
+      AUTO_CONNECT_CONNECTION_STRING: zookeeper:2181
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  api-service-1:
+    build: ../api-service
+    hostname: api-service-1
+    environment:
+      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
+      HOSTNAME: api-service-1
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  api-service-2:
+    build: ../api-service
+    hostname: api-service-2
+    environment:
+      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
+      HOSTNAME: api-service-2
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  api-service-3:
+    build: ../api-service
+    hostname: api-service-3
+    environment:
+      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
+      HOSTNAME: api-service-3
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  api-service-4:
+    build: ../api-service
+    hostname: api-service-4
+    environment:
+      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
+      HOSTNAME: api-service-4
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  load-balancer:
+    build: ../load-balancer
+    ports:
+      - "8080:8080"
+    environment:
+      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+      api-service-1:
+        condition: service_started
+      api-service-2:
+        condition: service_started
+      api-service-3:
+        condition: service_started
+      api-service-4:
+        condition: service_started
+
+  test-client:
+    build: ../test-client
+    environment:
+      LOAD_BALANCER_URL: http://load-balancer:8080
+      NUM_USERS: 20
+      INTERVAL_MS: 500
+      DURATION_SECONDS: 300
+    depends_on:
+      - load-balancer
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - load-balancer
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - prometheus

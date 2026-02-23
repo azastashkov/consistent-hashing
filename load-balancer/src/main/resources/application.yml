@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+zookeeper:
+  connect-string: ${ZOOKEEPER_CONNECT_STRING:localhost:2181}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  metrics:
+    tags:
+      application: load-balancer

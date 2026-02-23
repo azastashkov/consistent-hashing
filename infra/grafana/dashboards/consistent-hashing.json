@@ -1,0 +1,102 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "links": [],
+  "panels": [
+    {
+      "title": "Request Rate per Instance",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "PBFA97CFB590B2093" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        }
+      },
+      "targets": [
+        {
+          "expr": "rate(api_request_duration_seconds_count{job=\"api-service\"}[1m])",
+          "legendFormat": "instance {{instance_id}} ({{instance}})"
+        }
+      ]
+    },
+    {
+      "title": "Request Latency p50 / p95 / p99",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "PBFA97CFB590B2093" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 5
+          }
+        }
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.50, sum(rate(api_request_duration_seconds_bucket{job=\"api-service\"}[1m])) by (le, instance_id))",
+          "legendFormat": "p50 - instance {{instance_id}}"
+        },
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(api_request_duration_seconds_bucket{job=\"api-service\"}[1m])) by (le, instance_id))",
+          "legendFormat": "p95 - instance {{instance_id}}"
+        },
+        {
+          "expr": "histogram_quantile(0.99, sum(rate(api_request_duration_seconds_bucket{job=\"api-service\"}[1m])) by (le, instance_id))",
+          "legendFormat": "p99 - instance {{instance_id}}"
+        }
+      ]
+    },
+    {
+      "title": "Total Requests per Instance",
+      "type": "barchart",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "PBFA97CFB590B2093" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {}
+        }
+      },
+      "targets": [
+        {
+          "expr": "api_request_duration_seconds_count{job=\"api-service\"}",
+          "legendFormat": "instance {{instance_id}} ({{instance}})",
+          "instant": true
+        }
+      ]
+    },
+    {
+      "title": "Request Distribution (Pie)",
+      "type": "piechart",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "datasource": { "type": "prometheus", "uid": "PBFA97CFB590B2093" },
+      "targets": [
+        {
+          "expr": "api_request_duration_seconds_count{job=\"api-service\"}",
+          "legendFormat": "instance {{instance_id}}",
+          "instant": true
+        }
+      ]
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 39,
+  "tags": ["consistent-hashing"],
+  "templating": { "list": [] },
+  "time": { "from": "now-15m", "to": "now" },
+  "title": "Consistent Hashing Load Balancer",
+  "uid": "consistent-hashing-lb"
+}
