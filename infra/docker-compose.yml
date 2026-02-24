@@ -23,6 +23,16 @@ services:
       zookeeper:
         condition: service_healthy
 
+  api-service-0:
+    build: ../api-service
+    hostname: api-service-0
+    environment:
+      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
+      HOSTNAME: api-service-0
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
   api-service-1:
     build: ../api-service
     hostname: api-service-1
@@ -49,16 +59,6 @@ services:
     environment:
       ZOOKEEPER_CONNECT_STRING: zookeeper:2181
       HOSTNAME: api-service-3
-    depends_on:
-      zookeeper:
-        condition: service_healthy
-
-  api-service-4:
-    build: ../api-service
-    hostname: api-service-4
-    environment:
-      ZOOKEEPER_CONNECT_STRING: zookeeper:2181
-      HOSTNAME: api-service-4
     depends_on:
       zookeeper:
         condition: service_healthy
