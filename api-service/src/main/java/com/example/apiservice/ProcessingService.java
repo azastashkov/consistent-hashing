@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ProcessingService {
 
     private static final Logger log = LoggerFactory.getLogger(ProcessingService.class);
-    private static final long PROCESSING_TIME_MS = 5000;
+    private static final long PROCESSING_TIME_MS = 1000;
 
     private final ConcurrentHashMap<String, CompletableFuture<UserResult>> cache = new ConcurrentHashMap<>();
 
