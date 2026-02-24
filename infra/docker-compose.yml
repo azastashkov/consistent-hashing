@@ -42,6 +42,8 @@ services:
     depends_on:
       zookeeper:
         condition: service_healthy
+      api-service-0:
+        condition: service_started
 
   api-service-2:
     build: ../api-service
@@ -52,6 +54,8 @@ services:
     depends_on:
       zookeeper:
         condition: service_healthy
+      api-service-1:
+        condition: service_started
 
   api-service-3:
     build: ../api-service
@@ -62,6 +66,8 @@ services:
     depends_on:
       zookeeper:
         condition: service_healthy
+      api-service-2:
+        condition: service_started
 
   load-balancer:
     build: ../load-balancer
