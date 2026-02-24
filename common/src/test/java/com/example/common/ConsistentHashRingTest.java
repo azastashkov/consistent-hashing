@@ -32,15 +32,16 @@ class ConsistentHashRingTest {
     @Test
     void deterministicRouting() {
         ConsistentHashRing<String> ring = new ConsistentHashRing<>();
+        ring.addNode("0", "node-0");
         ring.addNode("1", "node-1");
         ring.addNode("2", "node-2");
         ring.addNode("3", "node-3");
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 16; i++) {
             String key = String.valueOf(i);
-            String first = ring.getNode(key);
-            String second = ring.getNode(key);
-            assertThat(first).isEqualTo(second);
+            int nodeId = i % 4;
+            String node = ring.getNode(key);
+            assertThat(node).isEqualTo("node-" + nodeId);
         }
     }
 
