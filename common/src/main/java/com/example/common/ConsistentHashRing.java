@@ -31,13 +31,12 @@ public class ConsistentHashRing<T> {
     }
 
     public T getNode(String key) {
-        int id = Integer.parseInt(key);
+        int hash = hash(key);
         lock.readLock().lock();
         try {
             if (ring.isEmpty()) {
                 return null;
             }
-            int hash = hash(id);
             Map.Entry<Integer, T> entry = ring.ceilingEntry(hash);
             if (entry == null) {
                 entry = ring.firstEntry();
@@ -48,8 +47,8 @@ public class ConsistentHashRing<T> {
         }
     }
 
-    private int hash(int id) {
-        return id % ring.size();
+    private int hash(String key) {
+        return Math.abs(key.hashCode()) % (ring.isEmpty() ? 1 : ring.size());
     }
 
     public int size() {

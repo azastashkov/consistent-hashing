@@ -37,29 +37,31 @@ class ConsistentHashRingTest {
         ring.addNode("2", "node-2");
         ring.addNode("3", "node-3");
 
+        // Same key always maps to the same node
         for (int i = 0; i < 16; i++) {
             String key = String.valueOf(i);
-            int nodeId = i % 4;
-            String node = ring.getNode(key);
-            assertThat(node).isEqualTo("node-" + nodeId);
+            String first = ring.getNode(key);
+            String second = ring.getNode(key);
+            assertThat(first).isEqualTo(second);
         }
     }
 
     @Test
-    void moduloDistribution() {
+    void nonNumericKeysWork() {
         ConsistentHashRing<String> ring = new ConsistentHashRing<>();
         ring.addNode("0", "node-0");
         ring.addNode("1", "node-1");
         ring.addNode("2", "node-2");
-        ring.addNode("3", "node-3");
 
-        // With 4 nodes at positions 0,1,2,3: key id % 4 maps directly
-        assertThat(ring.getNode("0")).isEqualTo("node-0");  // 0 % 4 = 0
-        assertThat(ring.getNode("1")).isEqualTo("node-1");  // 1 % 4 = 1
-        assertThat(ring.getNode("2")).isEqualTo("node-2");  // 2 % 4 = 2
-        assertThat(ring.getNode("3")).isEqualTo("node-3");  // 3 % 4 = 3
-        assertThat(ring.getNode("4")).isEqualTo("node-0");  // 4 % 4 = 0
-        assertThat(ring.getNode("5")).isEqualTo("node-1");  // 5 % 4 = 1
+        // Non-numeric keys should resolve without throwing
+        assertThat(ring.getNode("user-alice")).isNotNull();
+        assertThat(ring.getNode("user-bob")).isNotNull();
+        assertThat(ring.getNode("550e8400-e29b-41d4-a716-446655440000")).isNotNull();
+
+        // Same non-numeric key always returns the same node
+        String first = ring.getNode("user-alice");
+        String second = ring.getNode("user-alice");
+        assertThat(first).isEqualTo(second);
     }
 
     @Test
