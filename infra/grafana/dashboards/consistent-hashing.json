@@ -25,7 +25,7 @@
       "targets": [
         {
           "expr": "rate(api_request_duration_seconds_count{job=\"api-service\"}[1m])",
-          "legendFormat": "instance {{instance_id}} ({{instance}})"
+          "legendFormat": "({{instance}})"
         }
       ]
     },
@@ -46,16 +46,8 @@
       },
       "targets": [
         {
-          "expr": "histogram_quantile(0.50, sum(rate(api_request_duration_seconds_bucket{job=\"api-service\"}[1m])) by (le, instance_id))",
-          "legendFormat": "p50 - instance {{instance_id}}"
-        },
-        {
-          "expr": "histogram_quantile(0.95, sum(rate(api_request_duration_seconds_bucket{job=\"api-service\"}[1m])) by (le, instance_id))",
-          "legendFormat": "p95 - instance {{instance_id}}"
-        },
-        {
-          "expr": "histogram_quantile(0.99, sum(rate(api_request_duration_seconds_bucket{job=\"api-service\"}[1m])) by (le, instance_id))",
-          "legendFormat": "p99 - instance {{instance_id}}"
+          "expr": "api_request_duration_seconds_max",
+          "legendFormat": "{{instance}}"
         }
       ]
     },
@@ -73,7 +65,7 @@
       "targets": [
         {
           "expr": "api_request_duration_seconds_count{job=\"api-service\"}",
-          "legendFormat": "instance {{instance_id}} ({{instance}})",
+          "legendFormat": "({{instance}})",
           "instant": true
         }
       ]
@@ -86,7 +78,7 @@
       "targets": [
         {
           "expr": "api_request_duration_seconds_count{job=\"api-service\"}",
-          "legendFormat": "instance {{instance_id}}",
+          "legendFormat": "{{instance}}",
           "instant": true
         }
       ]
