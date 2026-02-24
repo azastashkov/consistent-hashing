@@ -1,122 +1,85 @@
-<mxfile host="app.diagrams.net" agent="Claude" version="26.0.0">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
   <diagram name="Components" id="components-diagram">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="2066" dy="1119" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- Test Client -->
-        <mxCell id="test-client" value="Test Client&#xa;(Spring Boot CLI)&#xa;&#xa;LoadGenerator&#xa;16 users, HTTP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=middle;fontSize=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="340" width="160" height="100" as="geometry" />
+        <mxCell id="test-client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=middle;fontSize=12;fontStyle=0;" value="Test Client&#xa;(Spring Boot CLI)&#xa;&#xa;LoadGenerator&#xa;16 users, HTTP" vertex="1">
+          <mxGeometry height="100" width="160" x="290" y="360" as="geometry" />
         </mxCell>
-
-        <!-- Load Balancer -->
-        <mxCell id="lb" value="Load Balancer&#xa;(Spring WebFlux)&#xa;:8080&#xa;&#xa;ProxyController&#xa;ServiceRegistry&#xa;ConsistentHashRing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=middle;fontSize=12;fontStyle=0;" vertex="1" parent="1">
-          <mxGeometry x="320" y="310" width="180" height="140" as="geometry" />
+        <mxCell id="lb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=middle;fontSize=12;fontStyle=0;" value="Load Balancer&#xa;(Spring WebFlux)&#xa;:8080&#xa;&#xa;ProxyController&#xa;ServiceRegistry&#xa;ConsistentHashRing" vertex="1">
+          <mxGeometry height="140" width="180" x="570" y="330" as="geometry" />
         </mxCell>
-
-        <!-- API Services group -->
-        <mxCell id="api-group" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;dashPattern=8 8;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="620" y="220" width="200" height="340" as="geometry" />
+        <mxCell id="api-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;dashPattern=8 8;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="340" width="200" x="870" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="api-group-label" value="API Services :8081" style="text;html=1;fontSize=13;fontStyle=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="640" y="230" width="160" height="20" as="geometry" />
+        <mxCell id="api-group-label" parent="1" style="text;html=1;fontSize=13;fontStyle=1;align=center;" value="API Services :8081" vertex="1">
+          <mxGeometry height="20" width="160" x="890" y="250" as="geometry" />
         </mxCell>
-        <mxCell id="api1" value="api-service-1&#xa;ApiController&#xa;ProcessingService&#xa;ZK Registration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="640" y="260" width="160" height="65" as="geometry" />
+        <mxCell id="api1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="api-service-1&#xa;ApiController&#xa;ProcessingService&#xa;ZK Registration" vertex="1">
+          <mxGeometry height="65" width="160" x="890" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="api2" value="api-service-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="640" y="335" width="160" height="30" as="geometry" />
+        <mxCell id="api2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="api-service-2" vertex="1">
+          <mxGeometry height="30" width="160" x="890" y="355" as="geometry" />
         </mxCell>
-        <mxCell id="api3" value="api-service-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="640" y="375" width="160" height="30" as="geometry" />
+        <mxCell id="api3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="api-service-3" vertex="1">
+          <mxGeometry height="30" width="160" x="890" y="395" as="geometry" />
         </mxCell>
-        <mxCell id="api4" value="api-service-4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="640" y="415" width="160" height="30" as="geometry" />
+        <mxCell id="api4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="api-service-4" vertex="1">
+          <mxGeometry height="30" width="160" x="890" y="435" as="geometry" />
         </mxCell>
-
-        <!-- ZooKeeper -->
-        <mxCell id="zk" value="ZooKeeper 3.9&#xa;:2181&#xa;&#xa;Service Discovery&#xa;/services/api/*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="620" y="40" width="200" height="100" as="geometry" />
+        <mxCell id="zk" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=middle;fontSize=12;" value="ZooKeeper 3.9&#xa;:2181&#xa;&#xa;Service Discovery&#xa;/services/api/*" vertex="1">
+          <mxGeometry height="100" width="200" x="870" y="60" as="geometry" />
         </mxCell>
-
-        <!-- ZooNavigator -->
-        <mxCell id="zknav" value="ZooNavigator&#xa;:9000&#xa;(Web UI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="880" y="55" width="120" height="70" as="geometry" />
+        <mxCell id="zknav" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="ZooNavigator&#xa;:9000&#xa;(Web UI)" vertex="1">
+          <mxGeometry height="70" width="120" x="1170" y="75" as="geometry" />
         </mxCell>
-
-        <!-- Prometheus -->
-        <mxCell id="prom" value="Prometheus&#xa;:9090&#xa;&#xa;Scrape interval: 5s" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="320" y="620" width="180" height="90" as="geometry" />
+        <mxCell id="prom" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=middle;fontSize=12;" value="Prometheus&#xa;:9090&#xa;&#xa;Scrape interval: 5s" vertex="1">
+          <mxGeometry height="90" width="180" x="570" y="640" as="geometry" />
         </mxCell>
-
-        <!-- Grafana -->
-        <mxCell id="grafana" value="Grafana&#xa;:3000&#xa;&#xa;Dashboards:&#xa;Request Rate, Latency&#xa;Distribution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="600" width="160" height="120" as="geometry" />
+        <mxCell id="grafana" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=middle;fontSize=12;" value="Grafana&#xa;:3000&#xa;&#xa;Dashboards:&#xa;Request Rate, Latency&#xa;Distribution" vertex="1">
+          <mxGeometry height="120" width="160" x="290" y="625" as="geometry" />
         </mxCell>
-
-        <!-- Common module -->
-        <mxCell id="common" value="common&#xa;(shared library)&#xa;&#xa;ConsistentHashRing&#xa;ServiceInstance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;verticalAlign=middle;fontSize=11;dashed=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="160" width="150" height="90" as="geometry" />
+        <mxCell id="common" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;verticalAlign=middle;fontSize=11;dashed=1;" value="common&#xa;(shared library)&#xa;&#xa;ConsistentHashRing&#xa;ServiceInstance" vertex="1">
+          <mxGeometry height="90" width="150" x="520" y="75" as="geometry" />
         </mxCell>
-
-        <!-- Connections -->
-
-        <!-- Test Client -> Load Balancer -->
-        <mxCell id="e1" value="HTTP GET /api/process&#xa;X-User-Id: {id}" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeWidth=2;strokeColor=#b85450;" edge="1" source="test-client" target="lb" parent="1">
+        <mxCell id="e1" edge="1" parent="1" source="test-client" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeWidth=2;strokeColor=#b85450;" target="lb" value="HTTP GET /api/process&#xa;X-User-Id: {id}">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Load Balancer -> API Services -->
-        <mxCell id="e2" value="HTTP proxy&#xa;(consistent hash routing)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="lb" target="api-group" parent="1">
+        <mxCell id="e2" edge="1" parent="1" source="lb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeWidth=2;strokeColor=#6c8ebf;" target="api-group" value="HTTP proxy&#xa;(consistent hash routing)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Load Balancer -> ZooKeeper (watch) -->
-        <mxCell id="e3" value="watch&#xa;/services/api/*" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#d6b656;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" source="lb" target="zk" parent="1">
+        <mxCell id="e3" edge="1" parent="1" source="lb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#d6b656;dashed=1;dashPattern=8 8;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="zk" value="watch&#xa;/services/api/*">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="410" y="200" />
-              <mxPoint x="560" y="200" />
-              <mxPoint x="560" y="90" />
+              <mxPoint x="660" y="220" />
+              <mxPoint x="810" y="220" />
+              <mxPoint x="810" y="110" />
             </Array>
           </mxGeometry>
         </mxCell>
-
-        <!-- API Services -> ZooKeeper (register) -->
-        <mxCell id="e4" value="register /&#xa;deregister&#xa;(ephemeral)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#82b366;strokeWidth=1.5;" edge="1" source="api-group" target="zk" parent="1">
+        <mxCell id="e4" edge="1" parent="1" source="api-group" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#82b366;strokeWidth=1.5;" target="zk" value="register /&#xa;deregister&#xa;(ephemeral)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- ZooNavigator -> ZooKeeper -->
-        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d6b656;" edge="1" source="zknav" target="zk" parent="1">
+        <mxCell id="e5" edge="1" parent="1" source="zknav" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d6b656;" target="zk" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Prometheus -> Load Balancer (scrape) -->
-        <mxCell id="e6" value="scrape&#xa;/actuator/prometheus" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#9673a6;dashed=1;dashPattern=4 4;" edge="1" source="prom" target="lb" parent="1">
+        <mxCell id="e6" edge="1" parent="1" source="prom" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#9673a6;dashed=1;dashPattern=4 4;" target="lb" value="scrape&#xa;/actuator/prometheus">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Prometheus -> API Services (scrape) -->
-        <mxCell id="e7" value="scrape&#xa;/actuator/prometheus" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#9673a6;dashed=1;dashPattern=4 4;" edge="1" source="prom" target="api-group" parent="1">
+        <mxCell id="e7" edge="1" parent="1" source="prom" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#9673a6;dashed=1;dashPattern=4 4;" target="api-group" value="scrape&#xa;/actuator/prometheus">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="720" y="665" />
+              <mxPoint x="970" y="685" />
             </Array>
           </mxGeometry>
         </mxCell>
-
-        <!-- Grafana -> Prometheus -->
-        <mxCell id="e8" value="PromQL queries" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#9673a6;strokeWidth=1.5;" edge="1" source="grafana" target="prom" parent="1">
+        <mxCell id="e8" edge="1" parent="1" source="grafana" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;fontSize=10;strokeColor=#9673a6;strokeWidth=1.5;" target="prom" value="PromQL queries">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Common dependency arrows -->
-        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#666666;dashed=1;dashPattern=4 4;endArrow=open;endSize=8;" edge="1" source="lb" target="common" parent="1">
+        <mxCell id="e9" edge="1" parent="1" source="lb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#666666;dashed=1;dashPattern=4 4;endArrow=open;endSize=8;" target="common" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
       </root>
     </mxGraphModel>
   </diagram>
