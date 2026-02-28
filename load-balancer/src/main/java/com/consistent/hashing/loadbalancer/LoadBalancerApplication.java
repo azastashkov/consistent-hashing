@@ -1,12 +1,12 @@
-package com.example.testclient;
+package com.consistent.hashing.loadbalancer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestClientApplication {
+public class LoadBalancerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestClientApplication.class, args);
+        SpringApplication.run(LoadBalancerApplication.class, args);
     }
 }

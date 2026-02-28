@@ -1,4 +1,4 @@
-package com.example.loadbalancer;
+package com.consistent.hashing.loadbalancer;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

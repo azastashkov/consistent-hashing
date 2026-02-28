@@ -1,4 +1,4 @@
-package com.example.apiservice;
+package com.consistent.hashing.apiservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.curator.framework.CuratorFramework;

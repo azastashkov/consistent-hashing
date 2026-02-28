@@ -1,4 +1,4 @@
-package com.example.common;
+package com.consistent.hashing.common;
 
 public record ServiceInstance(int id, String host, int port) {
 

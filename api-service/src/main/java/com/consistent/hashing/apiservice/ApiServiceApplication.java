@@ -1,4 +1,4 @@
-package com.example.apiservice;
+package com.consistent.hashing.apiservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.example.common;
+package com.consistent.hashing.common;
 
 import java.util.Map;
 import java.util.TreeMap;

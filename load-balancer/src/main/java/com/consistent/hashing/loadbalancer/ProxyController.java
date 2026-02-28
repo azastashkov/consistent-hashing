@@ -1,6 +1,6 @@
-package com.example.loadbalancer;
+package com.consistent.hashing.loadbalancer;
 
-import com.example.common.ServiceInstance;
+import com.consistent.hashing.common.ServiceInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;

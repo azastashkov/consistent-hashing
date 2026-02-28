@@ -1,4 +1,4 @@
-package com.example.common;
+package com.consistent.hashing.common;
 
 import org.junit.jupiter.api.Test;
 

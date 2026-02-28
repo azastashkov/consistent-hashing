@@ -1,4 +1,4 @@
-package com.example.apiservice;
+package com.consistent.hashing.apiservice;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

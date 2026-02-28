@@ -1,4 +1,4 @@
-package com.example.testclient;
+package com.consistent.hashing.testclient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

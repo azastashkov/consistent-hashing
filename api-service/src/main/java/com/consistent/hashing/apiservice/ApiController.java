@@ -1,4 +1,4 @@
-package com.example.apiservice;
+package com.consistent.hashing.apiservice;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;

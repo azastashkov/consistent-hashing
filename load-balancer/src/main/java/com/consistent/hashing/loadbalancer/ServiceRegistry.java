@@ -1,7 +1,7 @@
-package com.example.loadbalancer;
+package com.consistent.hashing.loadbalancer;
 
-import com.example.common.ConsistentHashRing;
-import com.example.common.ServiceInstance;
+import com.consistent.hashing.common.ConsistentHashRing;
+import com.consistent.hashing.common.ServiceInstance;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.curator.framework.CuratorFramework;
